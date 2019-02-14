@@ -13,33 +13,49 @@ var centerPoint = {
     y: 0.2
 }
 
+var dotSizeBias = {
+    x: 3000,
+    y: 600
+}
+
+// Array to store the dots
+var dots = [];
+
+function calculateDotSize(position, center) {
+    var sizeScale = Math.pow(0.05 * (center.x - position.x), 2) / dotSizeBias.x + Math.pow(0.05 * (center.y - position.y), 2) / dotSizeBias.y;
+    var dotSize = Math.max(minDotSize,
+        Math.min(maxDotSize,
+                 minDotSize / sizeScale));
+
+    return dotSize;
+}
+
+function renderDot(position, center) {
+    var currentDot = new Path.Circle(position, calculateDotSize(position, center));
+    currentDot.fillColor = dotColor;
+    return currentDot;
+}
+
 // Clears the canvas and renders the dot pattern
 function renderDotPattern() {
+    console.log("Starting rendering " + Date.now());
     project.clear();
     var width = $("#canvas").width();
     var height = $("#canvas").height();
     var center = new Point(centerPoint.x * width, centerPoint.y * height);
 
-
-    var currentY = -yGap /  2;
-    while (currentY < height) {
-        var currentX = 0;
-        while (currentX < width) {
+    var currentX = 0;
+    while (currentX < width) {
+        dots[currentX] = [];
+        var currentY = -yGap /  2;
+        while (currentY < height) {
             var currentPos = new Point(currentX, currentY);
-            var currentSize = Math.max(minDotSize,
-                                       Math.min(maxDotSize,
-                                                minDotSize * 1500 / currentPos.getDistance(center)));
-            var currentDot = new Path.Circle(currentPos, currentSize);
-            currentDot.fillColor = dotColor;
-            currentDot.onMouseEnter = function() {
-                currentDot.set({
-                    fillColor: 'black'
-                });
-            };
-            currentX += xGap;
+            dots[currentX][currentY] = renderDot(currentPos, center);
+            currentY += yGap;
         }
-        currentY += yGap;
+        currentX += xGap;
     }
+    console.log("Rendering finished " + Date.now());
 }
 
 $(window).resize(renderDotPattern);
