@@ -13,10 +13,31 @@
 
 <body>
   <canvas resize id="canvas" class="full-width"></canvas>
+  <div class="nav-bar"></div>
+  <img src="images/logo.png" class="logo">
+  <div id="title-bubble">
+    <div class="title-bubble-content">
+      <div class="title-container">StudentHack VII</div>
+      <div class="title-subscript-container">
+        <div>Manchester</div>
+        <div>March 23rd-24th</div>
+      </div>
+    </div>
+  </div>
+  <div id="timer">
+    <span id="timer-days">30</span>
+    :
+    <span id="timer-hours">20</span>
+    :
+    <span id="timer-minutes">14</span>
+    :
+    <span id="timer-seconds">30</span>
+  </div>
 </body>
 
 <footer>
-  <script type="text/paperscript" canvas="canvas" src="js/dotPattern.js"></script>
+  <script type="text/paperscript" canvas="canvas" src="js/layout.js"></script>
+  <script src="js/timer.js"></script>
 </footer>
 
 </html>
