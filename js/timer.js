@@ -2,9 +2,9 @@
 var countDownDate = new Date("Mar 23, 2019 9:00:00").getTime();
 
 var bounceSettings = {
-  times: 2,
+  times: 1,
   distance: 4, //px
-  speed: 100 //ms
+  speed: 70 //ms
 }
 
 // Logic (DO NOT MODIFY)
