@@ -85,3 +85,7 @@ canvas {
   text-shadow: -4px 3px 0px rgba(0, 0, 0, 1);
   position: absolute;
 }
+
+.timer-element {
+  position: relative;
+}
