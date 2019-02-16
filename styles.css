@@ -9,6 +9,7 @@ html, body {
   width: 100%;
   min-height: 100%;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .logo {
@@ -88,4 +89,42 @@ canvas {
 
 .timer-element {
   position: relative;
+}
+
+@media only screen and (max-width: 992px) {
+  .title-container {
+    height: 20%;
+    font-size: 4.7vw;
+    margin-bottom: -3%;
+  }
+  .title-subscript-container {
+    height: 20%;
+    font-size: 2.3vw;
+    line-height: 2.1vw;
+  }
+  #timer {
+    font-size: 7vw;
+    text-shadow: -4px 3px 0px rgba(0, 0, 0, 1);
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .title-container {
+    height: 20%;
+    font-size: 5.7vw;
+    margin-bottom: -1%;
+  }
+  .title-subscript-container {
+    height: 20%;
+    font-size: 3.5vw;
+    line-height: 3.2vw;
+  }
+  #timer {
+    font-size: 10vw;
+    text-shadow: -4px 3px 0px rgba(0, 0, 0, 1);
+  }
+  .logo {
+    margin-top: 10%;
+    height: 7%;
+  }
 }

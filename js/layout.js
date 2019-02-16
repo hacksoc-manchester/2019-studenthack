@@ -9,24 +9,38 @@ var maxDotSize = 6;
 var centerPoint = {
     x: 0.5,
     y: 0.35
-}
+};
 
 var dotSizeBias = {
     x: 2000,
     y: 400
-}
+};
 
-var spacingPresets = {
+var presets = {
     pagePadding: {
+        768: 0.1, // (window)px: (window)%
+        0: 0.1 // (window)px: (window)%
+    },
+    gap_titleBubble_timer: {
+        1200: 0.1, // (window)px: (window)%
+        992: 0.1,
+        768: 0.1,
         0: 0.1
     },
-    titleBubble_timer: {
+    titleBubbleImgRatio: 1.41,
+    titleBubbleOffset: {
+        1200: 0.15, // (window)px: (window)%
+        992: 0.1,
+        768: 0.1,
         0: 0.1
+    },
+    titleBubbleWidth: {
+        1200: 0.35, // (window)px: (window)%
+        992: 0.35,
+        768: 0.55,
+        0: 0.8
     }
-}
-
-var titleBubbleWidth = 0.35;
-var titleBubbleImgRation = 1.41;
+};
 
 // Array to store the dots
 var dots = [];
@@ -41,7 +55,7 @@ function renderDot(position, center) {
 
 // Clears the canvas and renders the dot pattern
 function renderDotPattern() {
-  console.log("Starting rendering " + Date.now());
+//   console.log("Starting rendering " + Date.now());
   project.clear();
   var width = $("#canvas").width();
   var height = $("#canvas").height();
@@ -58,21 +72,25 @@ function renderDotPattern() {
       }
       currentX += xGap;
   }
-  console.log("Rendering finished " + Date.now());
+//   console.log("Rendering finished " + Date.now());
 }
 
 
 function getPresetForBrowserWidth(presetsArray) {
     var screenWidth = $(window).width();
-    for(var screenSize in presetsArray)
-    if (screenSize < screenWidth)
-    return presetsArray[screenSize];
-    return 1;
+    var previousScreenSize = 0;
+    for(var screenSize in presetsArray) {
+        if (screenSize > screenWidth) {
+            return presetsArray[previousScreenSize];
+        }
+        previousScreenSize = screenSize;
+    }
+    return presetsArray[previousScreenSize];
 }
 
 function getMaxYPos() {
     var height = $(window).height();
-    return height - (height * getPresetForBrowserWidth(spacingPresets.pagePadding));
+    return height - (height * getPresetForBrowserWidth(presets.pagePadding));
 }
 
 function centerHorizontally(element) {
@@ -84,21 +102,26 @@ function centerHorizontally(element) {
 
 function placeTitleBubble() {
     var titleBubble = $("#title-bubble");
-    var requiredYPos = $("#canvas").height() * (centerPoint.y - 0.15);
-    var height = titleBubbleWidth * titleBubbleImgRation;
+    var requiredYPos = $("#canvas").height() * 
+                    (centerPoint.y - getPresetForBrowserWidth(presets.titleBubbleOffset));
+    var windowWidth = $(window).width();
+    var bubbleWidth = windowWidth * getPresetForBrowserWidth(presets.titleBubbleWidth);
+
     titleBubble.css({
         top: requiredYPos,
-        width: (titleBubbleWidth * 100) + "%",
-        height: (height * 100) + "%"
+        width: bubbleWidth + "px",
+        height: bubbleWidth /  presets.titleBubbleImgRatio + "px"
     });
+
     centerHorizontally(titleBubble);
 }
 
 function placeTimer() {
     var screenHeight = $(window).height();
     var titleBubble = $("#title-bubble");
-    var titleBubbleBottom = titleBubble.offset().top + titleBubble.height();
-    var offset = screenHeight * getPresetForBrowserWidth(spacingPresets.titleBubble_timer);
+    var titleBubbleHeight = titleBubble.width() / presets.titleBubbleImgRatio;
+    var titleBubbleBottom = titleBubble.offset().top + titleBubbleHeight;
+    var offset = screenHeight * getPresetForBrowserWidth(presets.gap_titleBubble_timer);
 
     var timer = $("#timer");
     timer.css({
