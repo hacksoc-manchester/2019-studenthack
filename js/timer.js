@@ -4,7 +4,7 @@ var countDownDate = new Date("Mar 23, 2019 9:00:00").getTime();
 var bounceSettings = {
   times: 1,
   distance: 4, //px
-  speed: 70 //ms
+  speed: 20 //ms
 }
 
 // Logic (DO NOT MODIFY)
@@ -22,8 +22,7 @@ var previousTime = {
   seconds: 0,
 }
 
-var x = setInterval(updateTime, 1000);
-updateTime();
+$(document).queue(updateTime);
 
 function bounce(element) {
   for(var i = 0; i < bounceSettings.times; i++) {
@@ -33,6 +32,7 @@ function bounce(element) {
 }
 
 function updateTime() {
+  $(this).dequeue();
   var now = new Date().getTime();
   var distance = countDownDate - now;
 
@@ -50,9 +50,10 @@ function updateTime() {
   }
 
   if (distance < 0) {
-    clearInterval(x);
     for(var unit in currentTime) {
       $("#timer-" + unit).html("00");
     }
+    return;
   }
+  $(document).delay(1000).queue(updateTime);
 }
