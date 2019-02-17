@@ -27,10 +27,7 @@ var presets = {
         0: 1.2
     },
     titleBubbleTextOffset: {
-        1200: 0.40, // (window)px: (window)%
-        992: 0.43,
-        768: 0.20,
-        0: 0.49
+        0: 0.45 // (window)px: (window)%
     },
     logoRatio: 1.08
 };
@@ -96,11 +93,13 @@ function placeTitleText() {
 
     var requiredPosition = 
             titleBubble.height()
-            * getPresetForBrowserWidth(presets.titleBubbleTextOffset) 
-            + titleBubble.offset().top;
+            * getPresetForBrowserWidth(presets.titleBubbleTextOffset);
+            // + titleBubble.offset().top;
     textContainer.css({
         top: requiredPosition + "px"
     })
+
+    console.log(requiredPosition, getPresetForBrowserWidth(presets.titleBubbleTextOffset));
 }
 
 function placeTitleBubble() {
@@ -140,7 +139,7 @@ function placeElements() {
     placeTitleBubble();
     resizeLogo();
     placeTitleText();
-    // renderDotPattern();
+    renderDotPattern();
 }
 
 $(document).ready(function () {
