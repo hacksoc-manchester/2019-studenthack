@@ -17,29 +17,22 @@ var dotSizeBias = {
 };
 
 var presets = {
-    pagePadding: {
-        768: 0.1, // (window)px: (window)%
-        0: 0.1 // (window)px: (window)%
-    },
-    gap_titleBubble_timer: {
-        1200: 0.1, // (window)px: (window)%
-        992: 0.1,
-        768: 0.1,
-        0: 0.1
-    },
-    titleBubbleImgRatio: 1.41,
-    titleBubbleOffset: {
-        1200: 0.15, // (window)px: (window)%
-        992: 0.1,
-        768: 0.1,
-        0: 0.1
+    titleBubbleHeight: {
+        1200: 1, // (window)px: (window)%
+        0: 1.1
     },
     titleBubbleWidth: {
-        1200: 0.35, // (window)px: (window)%
-        992: 0.35,
-        768: 0.55,
-        0: 0.8
-    }
+        1200: 1, // (window)px: (window)%
+        992: 1.12,
+        0: 1.2
+    },
+    titleBubbleTextOffset: {
+        1200: 0.40, // (window)px: (window)%
+        992: 0.43,
+        768: 0.20,
+        0: 0.49
+    },
+    logoRatio: 1.08
 };
 
 // Array to store the dots
@@ -57,8 +50,10 @@ function renderDot(position, center) {
 function renderDotPattern() {
 //   console.log("Starting rendering " + Date.now());
   project.clear();
+//   $("#canvas").height($(document).height());
   var width = $("#canvas").width();
   var height = $("#canvas").height();
+//   var height = $(document).height();
   var center = new Point(centerPoint.x * width, centerPoint.y * height);
 
   var currentX = 0;
@@ -88,11 +83,6 @@ function getPresetForBrowserWidth(presetsArray) {
     return presetsArray[previousScreenSize];
 }
 
-function getMaxYPos() {
-    var height = $(window).height();
-    return height - (height * getPresetForBrowserWidth(presets.pagePadding));
-}
-
 function centerHorizontally(element) {
     var left = ($(window).width() - element.width()) / 2;
     element.css({
@@ -100,36 +90,32 @@ function centerHorizontally(element) {
     });
 }
 
+function placeTitleText() {
+    var textContainer = $("#title-bubble-content")
+    var titleBubble = $("#title-bubble");
+
+    var requiredPosition = 
+            titleBubble.height()
+            * getPresetForBrowserWidth(presets.titleBubbleTextOffset) 
+            + titleBubble.offset().top;
+    textContainer.css({
+        top: requiredPosition + "px"
+    })
+}
+
 function placeTitleBubble() {
     var titleBubble = $("#title-bubble");
-    var requiredYPos = $("#canvas").height() * 
-                    (centerPoint.y - getPresetForBrowserWidth(presets.titleBubbleOffset));
-    var windowWidth = $(window).width();
-    var bubbleWidth = windowWidth * getPresetForBrowserWidth(presets.titleBubbleWidth);
+    var requiredHeight = $(window).height() * 
+        getPresetForBrowserWidth(presets.titleBubbleHeight);
+    var requiredWidth = $(window).width() * 
+        getPresetForBrowserWidth(presets.titleBubbleWidth);
 
     titleBubble.css({
-        top: requiredYPos,
-        width: bubbleWidth + "px",
-        height: bubbleWidth /  presets.titleBubbleImgRatio + "px"
-    });
-
-    centerHorizontally(titleBubble);
-}
-
-function placeTimer() {
-    var screenHeight = $(window).height();
-    var titleBubble = $("#title-bubble");
-    var titleBubbleHeight = titleBubble.width() / presets.titleBubbleImgRatio;
-    var titleBubbleBottom = titleBubble.offset().top + titleBubbleHeight;
-    var offset = screenHeight * getPresetForBrowserWidth(presets.gap_titleBubble_timer);
-
-    var timer = $("#timer");
-    timer.css({
-        top: Math.min(titleBubbleBottom + offset, 
-            getMaxYPos() - timer.height())
+        width: requiredWidth + "px",
+        height: requiredHeight + "px"
     })
-    centerHorizontally(timer);
 }
+
 
 function calculateDotSize(position, center) {
     var sizeScale = Math.pow(0.05 * (center.x - position.x), 2) / dotSizeBias.x + Math.pow(0.05 * (center.y - position.y), 2) / dotSizeBias.y;
@@ -140,11 +126,24 @@ function calculateDotSize(position, center) {
     return dotSize;
 }
 
-function placeElements() {
-    placeTitleBubble();
-    placeTimer();
-    renderDotPattern();
+function resizeLogo() {
+    var logo = $("#logo");
+    var logoWidth = logo.width();
+    var requiredHeight = logoWidth / presets.logoRatio;
+
+    logo.css({
+        height: requiredHeight + "px"
+    });
 }
 
-$(window).resize(placeElements);
-placeElements();
+function placeElements() {
+    placeTitleBubble();
+    resizeLogo();
+    placeTitleText();
+    // renderDotPattern();
+}
+
+$(document).ready(function () {
+    $(window).resize(placeElements);
+    placeElements();
+});

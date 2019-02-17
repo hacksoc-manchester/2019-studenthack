@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="styles.css">
   <title>StudentHack VII</title>
   <script src="js/jquery.js"></script>
@@ -12,26 +13,170 @@
 </head>
 
 <body>
-  <canvas resize id="canvas" class="full-width"></canvas>
   <div class="nav-bar"></div>
-  <img src="images/logo.png" class="logo">
-  <div id="title-bubble">
-    <div class="title-bubble-content">
-      <div class="title-container">StudentHack VII</div>
-      <div class="title-subscript-container">
-        <div>Manchester</div>
-        <div>March 23rd-24th</div>
+  <div class="content">
+    <img src="images/logo.png" id="logo">
+    <canvas resize id="canvas" class="full-width"></canvas>
+    <div id="title-bubble">
+      <div id="title-bubble-content">
+        <div class="title-container">StudentHack VII</div>
+        <div class="title-subscript-container">
+          <div>Manchester</div>
+          <div>March 23rd-24th</div>
+        </div>
       </div>
     </div>
-  </div>
-  <div id="timer">
-    <span id="timer-days" class="timer-element">30</span>
-    :
-    <span id="timer-hours" class="timer-element">20</span>
-    :
-    <span id="timer-minutes" class="timer-element">14</span>
-    :
-    <span id="timer-seconds" class="timer-element">30</span>
+    <div id="timer">
+      <span id="timer-days" class="timer-element">30</span>
+      :
+      <span id="timer-hours" class="timer-element">20</span>
+      :
+      <span id="timer-minutes" class="timer-element">14</span>
+      :
+      <span id="timer-seconds" class="timer-element">30</span>
+    </div>
+    <section id="faq" class="container">
+      <img id="faq-header" src="images/faq.png">
+      <div class="row">
+        <div class="col-lg-4 faq-question">
+          <div id="question-1" class="question-img">
+            <div class="question-text offset-y-m14 offset-x-4">
+              WHAT IS A HACKATHON?
+            </div>
+          </div>
+          <div id="answer-1" class="answer-img">
+            <div class="answer-text width-70 offset-x-m3 offset-y-m3">
+              Hackathons are awesome events full of creativity, technology and passionate tech-related students
+              collaborating and creating. Attendees work in teams to create apps, games, robots… literally anything you
+              want to build & learn about!
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-7" class="question-img">
+            <div class="question-text offset-x-7">
+              HOW MUCH DOES
+            </div>
+            <div class="question-text offset-x-7">
+              IT COST?
+            </div>
+          </div>
+          <div id="answer-7" class="answer-img">
+            <div class="answer-text width-70 offset-x-m4">
+              StudentHack is free for all accepted hackers. We will provide you WiFi, meals, drinks, sleeping rooms,
+              swag,
+              workshops, great atmosphere and… FUN!
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-6" class="question-img">
+            <div class="question-text offset-y-m14 offset-x-4">I DON'T KNOW HOW TO CODE.</div>
+            <div class="question-text offset-y-m14 offset-x-4">CAN I STILL COME?</div>
+          </div>
+          <div id="answer-6" class="answer-img">
+            <div class="answer-text width-70 offset-x-m6">
+              Hackathons are for beginners. Networking with and seeing awesome hackers in action will expose you to a
+              tremendous amount of knowledge. There is an amazing suit of industry experts and mentors that are happy to
+              assist you!
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-4" class="question-img">
+            <div class="question-text offset-x-m6">
+              WHAT IF I DON'T
+            </div>
+            <div class="question-text offset-x-m6">
+              HAVE A TEAM?
+            </div>
+          </div>
+          <div id="answer-4" class="answer-img">
+            <div class="answer-text width-70 offset-x-8 offset-y-3 offset-y-0-xs">
+              No need to worry! Part of the fun at the hackathon is meeting new people. We will organise a team-building
+              session, where you will meet other participants just like you. We ask for the teams to be of 4 people
+              maximum.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-5" class="question-img">
+            <div class="question-text  offset-x-m7">
+              WHAT SHOULD
+            </div>
+            <div class="question-text  offset-x-m7">
+              I BRING?
+            </div>
+          </div>
+          <div id="answer-5" class="answer-img">
+            <div class="answer-text width-70 offset-x-m4">
+              All attendees must bring a valid ID for admission. Other common checklist items include laptops, chargers,
+              sleeping bags and toiletries, spare clothes, adapters, and sleeping bags.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-3" class="question-img">
+            <div class="question-text offset-y-m3 offset-x-m3">
+              WHO CAN APPLY?
+            </div>
+          </div>
+          <div id="answer-3" class="answer-img">
+            <div class="answer-text width-70 offset-y-8 offset-y-5-s offset-x-7">
+              We accept students who are over 18 and are currently studying or have graduated less than 1 year ago. You
+              can also join us as a mentor or volunteer! Contact us for more info.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-5" class="question-img">
+            <div class="question-text offset-x-m7">
+              DO YOU OFFER TRAVEL
+            </div>
+            <div class="question-text offset-x-m7">
+              REIMBURSEMENTS?
+            </div>
+          </div>
+          <div id="answer-2" class="answer-img">
+            <div class="answer-text width-50 offset-x-m7 width-20-s">
+              Unfortunately, we cannot reimburse you for your travel expenses.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-8" class="question-img">
+            <div class="question-text offset-x-m6">
+              WHO OWNS MY IP RIGHTS,
+            </div>
+            <div class="question-text offset-x-m6">
+              CODE AND IDEA?
+            </div>
+          </div>
+          <div id="answer-8" class="answer-img">
+            <div class="answer-text width-70 offset-x-m7">
+              You own all the rights to your intellectual property. We won’t claim any right over anything made during
+              this event.
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 faq-question">
+          <div id="question-9" class="question-img">
+            <div class="question-text offset-x-m6">
+              WHAT CAN I EXPECT FROM
+            </div>
+            <div class="question-text offset-x-m6">
+              STUDENTHACK?
+            </div>
+          </div>
+          <div id="answer-9" class="answer-img">
+            <div class="answer-text width-70 offset-y-5 offset-x-6">
+              An entire weekend of great company, good food and plenty of swag! We’ll also have hardware and tons of
+              mentors.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </body>
 

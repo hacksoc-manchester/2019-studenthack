@@ -10,18 +10,34 @@ html, body {
   min-height: 100%;
   height: 100%;
   overflow-x: hidden;
+  font-family: "softMarshmallow";
 }
 
-.logo {
-  margin-top: 2%;
-  height: 10%;
+body {
+  text-align: center;
+}
+
+.content {
+  min-height: 100%;
+  width: 100%;
+  background: url("images/background.png") repeat-x top;
+  background-size: cover;
+}
+
+#logo {
+  position: relative;
+  z-index: 1000;
+  margin-top: -8%;
+  margin-bottom: -15%;
+  width: 6%;
 }
 
 #title-bubble {
   display: inline-block;
   background: url("images/titleBubble.png") no-repeat center;
   background-size: contain;
-  position: absolute;
+  position: relative;
+  margin: 0 0 -10% -2%;
 }
 
 .smooth-transitions {
@@ -31,32 +47,23 @@ html, body {
   transition: all 0.25s ease;
 }
 
-body {
-  background: linear-gradient(rgba(247, 147, 30, 1) 80%, rgba(0, 0, 0, 1));
-  position: relative;
-}
-
-body {
-  text-align: center;
-}
-
 canvas {
   width: 100%;
   height: 100%;
   position: absolute;
   left: 0;
+  top: 0;
   z-index: -999;
 }
 
-.title-bubble-content {
+#title-bubble-content {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100%;
-  position: relative;
-  top: 7%;
+  height: 15%;
   -webkit-transform: rotate(-5deg);
   -moz-transform: rotate(-5deg);
   -ms-transform: rotate(-5deg);
@@ -68,7 +75,7 @@ canvas {
   width: 100%;
   height: 20%;
   font-size: 2.7vw;
-  margin-bottom: -3%;
+  margin-bottom: 2%;
   font-weight: bold;
 }
 
@@ -84,21 +91,275 @@ canvas {
   font-size: 4vw;
   color: white;
   text-shadow: -4px 3px 0px rgba(0, 0, 0, 1);
-  position: absolute;
+  position: relative;
 }
 
 .timer-element {
   position: relative;
 }
 
+#faq-header {
+  position: relative;
+  margin: 10% 0 5% 0;
+  z-index: 1000;
+  max-width: 30%;
+  max-height: 20%;
+  width: auto;
+  height: auto;
+}
+
+.faq-question {
+  height: 40vh;
+  margin-bottom: 5%;
+}
+
+.question-text {
+  position: relative;
+  font-size: 0.9vw;
+}
+
+.answer-text {
+  position: relative;
+  font-size: 0.7vw;
+}
+
+.width-50 {
+  width: 50%;
+}
+
+.width-70 {
+  width: 70%;
+}
+
+.offset-x-4 {
+  left: 4%;
+}
+
+.offset-x-m3 {
+  left: -3%;
+}
+
+.offset-x-m4 {
+  left: -4%;
+}
+
+.offset-x-m6 {
+  left: -6%;
+}
+
+.offset-x-6 {
+  left: 6%;
+}
+
+.offset-x-m7 {
+  left: -7%;
+}
+
+.offset-x-7 {
+  left: 7%;
+}
+
+.offset-x-8 {
+  left: 8%;
+}
+
+.offset-y-3 {
+  top: 3%;
+}
+
+.offset-y-m3 {
+  top: -3%;
+}
+
+.offset-y-5 {
+  top: 5%;
+}
+
+.offset-y-6 {
+  top: 6%;
+}
+
+.offset-y-8 {
+  top: 8%;
+}
+
+.offset-y-m10 {
+  top: -10%;
+}
+
+.offset-y-m14 {
+  top: -14%;
+}
+
+.question-img, .answer-img {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+#question-1 {
+  background: url("images/faq/question1.png") no-repeat center;
+  background-size: contain;
+  height: 40%;
+}
+
+#answer-1 {
+  background: url("images/faq/answer1.png") no-repeat center;
+  background-size: contain;
+  top: -10%;
+  height: 80%;
+}
+
+#question-2 {
+  background: url("images/faq/question2.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  width: 80%;
+}
+
+#answer-2 {
+  background: url("images/faq/answer2.png") no-repeat center;
+  background-size: contain;
+  top: 5%;
+  height: 60%;
+}
+
+#question-3 {
+  background: url("images/faq/question3.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  width: 80%;
+  left: 15%;
+}
+
+#answer-3 {
+  background: url("images/faq/answer3.png") no-repeat center;
+  background-size: contain;
+  top: -10%;
+  height: 80%;
+}
+
+#question-4 {
+  background: url("images/faq/question4.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  left: 15%;
+  width: 110%;
+}
+
+#answer-4 {
+  background: url("images/faq/answer4.png") no-repeat center;
+  background-size: contain;
+  top: -3%;
+  height: 80%;
+}
+
+#question-5 {
+  background: url("images/faq/question5.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  width: 80%;
+  left: 15%;
+}
+
+#answer-5 {
+  background: url("images/faq/answer5.png") no-repeat center;
+  background-size: contain;
+  height: 80%;
+}
+
+#question-6 {
+  background: url("images/faq/question1.png") no-repeat center;
+  background-size: contain;
+  height: 40%;
+  width: 100%;
+}
+
+#answer-6 {
+  background: url("images/faq/answer2.png") no-repeat center;
+  background-size: contain;
+  top: -10%;
+  height: 80%;
+}
+
+#question-7 {
+  background: url("images/faq/question2.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  width: 100%;
+}
+
+#answer-7 {
+  background: url("images/faq/answer1.png") no-repeat center;
+  background-size: contain;
+  height: 80%;
+}
+
+#question-8 {
+  background: url("images/faq/question3.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  width: 100%;
+}
+
+#answer-8 {
+  background: url("images/faq/answer2.png") no-repeat center;
+  background-size: contain;
+  top: -5%;
+  height: 80%;
+}
+
+#question-9 {
+  background: url("images/faq/question5.png") no-repeat center;
+  background-size: contain;
+  height: 35%;
+  width: 80%;
+  left: 15%;
+}
+
+#answer-9 {
+  background: url("images/faq/answer3.png") no-repeat center;
+  background-size: contain;
+  top: -10%;
+  height: 80%;
+}
+
+@media only screen and (max-width: 1440px) {
+  .question-text {
+    font-size: 1vw;
+  }
+  .answer-text {
+    font-size: 0.8vw;
+  }
+}
+
 @media only screen and (max-width: 992px) {
+  #faq-header {
+    max-width: 45%;
+    max-height: 35%;
+  }
+  .question-text {
+    font-size: 1.2vw;
+  }
+  .answer-text {
+    font-size: 1vw;
+  }
+  .offset-y-5-s {
+    top: 5%;
+  }
+  .width-20-s {
+    width: 20%;
+  }
   .title-container {
-    height: 20%;
     font-size: 4.7vw;
-    margin-bottom: -3%;
+    margin-bottom: 2%;
   }
   .title-subscript-container {
-    height: 20%;
     font-size: 2.3vw;
     line-height: 2.1vw;
   }
@@ -106,16 +367,27 @@ canvas {
     font-size: 7vw;
     text-shadow: -4px 3px 0px rgba(0, 0, 0, 1);
   }
+  #title-bubble {
+    margin: -13% -6%;
+  }
 }
 
 @media only screen and (max-width: 768px) {
+  #faq-header {
+    max-width: 70%;
+    max-height: 60%;
+  }
+  .question-text {
+    font-size: 2vw;
+  }
+  .answer-text {
+    font-size: 1.8vw;
+  }
   .title-container {
-    height: 20%;
     font-size: 5.7vw;
-    margin-bottom: -1%;
+    margin-bottom: 2%;
   }
   .title-subscript-container {
-    height: 20%;
     font-size: 3.5vw;
     line-height: 3.2vw;
   }
@@ -123,8 +395,32 @@ canvas {
     font-size: 10vw;
     text-shadow: -4px 3px 0px rgba(0, 0, 0, 1);
   }
-  .logo {
+  #logo {
     margin-top: 10%;
-    height: 7%;
+    width: 18%;
+  }
+  #title-bubble {
+    margin: -30% -10%;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .question-text {
+    font-size: 3vw;
+  }
+  .answer-text {
+    font-size: 2.8vw;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .question-text {
+    font-size: 4vw;
+  }
+  .answer-text {
+    font-size: 3vw;
+  }
+  .offset-y-0-xs {
+    top: 0%;
   }
 }
