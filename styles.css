@@ -64,6 +64,7 @@ canvas {
   align-items: center;
   width: 100%;
   height: 15%;
+  transform: rotate(-5deg);
   -webkit-transform: rotate(-5deg);
   -moz-transform: rotate(-5deg);
   -ms-transform: rotate(-5deg);
@@ -121,6 +122,10 @@ canvas {
 .answer-text {
   position: relative;
   font-size: 0.7vw;
+}
+
+.width-40 {
+  width: 40%;
 }
 
 .width-50 {
@@ -240,7 +245,6 @@ canvas {
 #answer-3 {
   background: url("images/faq/answer3.png") no-repeat center;
   background-size: contain;
-  top: -10%;
   height: 80%;
 }
 
@@ -248,8 +252,8 @@ canvas {
   background: url("images/faq/question4.png") no-repeat center;
   background-size: contain;
   height: 35%;
-  left: 15%;
   width: 110%;
+  top: -3%
 }
 
 #answer-4 {
@@ -310,7 +314,6 @@ canvas {
 #answer-8 {
   background: url("images/faq/answer2.png") no-repeat center;
   background-size: contain;
-  top: -5%;
   height: 80%;
 }
 
@@ -320,21 +323,22 @@ canvas {
   height: 35%;
   width: 80%;
   left: 15%;
+  top: 4%;
 }
 
 #answer-9 {
   background: url("images/faq/answer3.png") no-repeat center;
   background-size: contain;
-  top: -10%;
   height: 80%;
 }
 
-@media only screen and (max-width: 1440px) {
+
+@media only screen and (min-width: 1024px) {
   .question-text {
     font-size: 1vw;
   }
   .answer-text {
-    font-size: 0.8vw;
+    font-size: 0.8rem;
   }
 }
 
@@ -381,7 +385,7 @@ canvas {
     font-size: 2vw;
   }
   .answer-text {
-    font-size: 1.8vw;
+    font-size: 1.5vw;
   }
   .title-container {
     font-size: 5.7vw;
