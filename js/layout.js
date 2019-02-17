@@ -17,6 +17,9 @@ var dotSizeBias = {
 };
 
 var presets = {
+    dotPatternOffset: {
+        1200:  0
+    },
     titleBubbleHeight: {
         1200: 1, // (window)px: (window)%
         0: 1.1
@@ -67,6 +70,12 @@ function renderDotPattern() {
 //   console.log("Rendering finished " + Date.now());
 }
 
+function placeDotPattern() {
+    var container = $(".content");
+    // container.css("background-position-x",
+    //                 getPresetForBrowserWidth(presets.));
+}
+
 
 function getPresetForBrowserWidth(presetsArray) {
     var screenWidth = $(window).width();
@@ -94,12 +103,9 @@ function placeTitleText() {
     var requiredPosition = 
             titleBubble.height()
             * getPresetForBrowserWidth(presets.titleBubbleTextOffset);
-            // + titleBubble.offset().top;
     textContainer.css({
         top: requiredPosition + "px"
     })
-
-    console.log(requiredPosition, getPresetForBrowserWidth(presets.titleBubbleTextOffset));
 }
 
 function placeTitleBubble() {
@@ -136,13 +142,15 @@ function resizeLogo() {
 }
 
 function placeElements() {
+    // renderDotPattern();
     placeTitleBubble();
+    placeDotPattern();
     resizeLogo();
     placeTitleText();
-    renderDotPattern();
 }
 
 $(document).ready(function () {
     $(window).resize(placeElements);
     placeElements();
+    // $("body").scroll(placeElements);
 });
