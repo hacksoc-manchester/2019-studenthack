@@ -141,15 +141,25 @@ function resizeLogo() {
     });
 }
 
+function loaded() {
+    $('.preloader').fadeOut(1000, "swing", function()  {
+        $('.preloader-wrapper').fadeOut();
+    });
+    $('body').removeClass('preloader-site');
+}
+
 function placeElements() {
     // renderDotPattern();
     placeTitleBubble();
     placeDotPattern();
     resizeLogo();
     placeTitleText();
+    loaded();
 }
 
 $(document).ready(function () {
+    $('body').addClass('preloader-site');
+
     $(window).resize(placeElements);
     placeElements();
     // $("body").scroll(placeElements);
