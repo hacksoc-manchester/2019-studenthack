@@ -74,6 +74,39 @@ body {
   text-align: center;
 }
 
+.apply-container {
+  position: fixed;
+  transform: translateX(-10%);
+  z-index: 10000;
+}
+
+#apply-link {
+  position: relative;
+  color: black;
+  margin-left: auto;
+  margin-right: auto;
+  top: 50%;
+  transform: translateY(150%);
+  z-index: 10001;
+  overflow-wrap: normal;
+  max-width: 30%;
+}
+
+#apply-link-img {
+  position: relative;
+  z-index: 10000;
+  width: 50%;
+  height: auto;
+}
+
+.apply-container:hover > #apply-link-img {
+  -webkit-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
+  -moz-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
+  -ms-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
+  -o-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
+  filter: drop-shadow(-3px 5px rgb(0, 0, 0));
+}
+
 #logo {
   position: relative;
   z-index: 1000;
@@ -467,6 +500,15 @@ canvas {
   }
   #title-bubble {
     margin: -30% -10%;
+  }
+  .apply-container {
+    width: 40%;
+  }
+  #apply-link-img {
+    width: 40%;
+  }
+  #apply-link {
+    font-size: 2vw;
   }
 }
 
