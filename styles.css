@@ -63,9 +63,9 @@ body.preloader-site {
 
 .content {
   background-image: url("images/background.png");
-  /* background-size: cover; */
+  background-size: cover;
   background-repeat: no-repeat;
-  background-position: -30px -100px;
+  background-position: 0 -100px;
   min-height: 100%;
   width: 100%;
 }
@@ -470,7 +470,7 @@ canvas {
 
 @media only screen and (max-width: 768px) {
   .content {
-    background-position: -400px -100px;
+    background-position: 0 -150px;
   }
   #faq-header {
     max-width: 70%;
@@ -513,6 +513,9 @@ canvas {
 }
 
 @media only screen and (max-width: 450px) {
+  .content {
+    background-position: -200px 0;
+  }
   .question-text {
     font-size: 3vw;
   }
