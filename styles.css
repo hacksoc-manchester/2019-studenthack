@@ -75,22 +75,25 @@ body {
 }
 
 .apply-container {
-  position: absolute;
+  position: fixed;
   transform: translateX(-10%);
   z-index: 10000;
 }
 
 #apply-link {
+  position: relative;
   color: black;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
   top: 50%;
-  transform: translateY(250%);
+  transform: translateY(150%);
   z-index: 10001;
+  overflow-wrap: normal;
+  max-width: 30%;
 }
 
 #apply-link-img {
+  position: relative;
   z-index: 10000;
   width: 50%;
   height: auto;
@@ -497,6 +500,15 @@ canvas {
   }
   #title-bubble {
     margin: -30% -10%;
+  }
+  .apply-container {
+    width: 40%;
+  }
+  #apply-link-img {
+    width: 40%;
+  }
+  #apply-link {
+    font-size: 2vw;
   }
 }
 
