@@ -13,6 +13,8 @@ html, body {
   font-family: "softMarshmallow";
 }
 
+html {}
+
 body.preloader-site {
   overflow: hidden;
 }
@@ -63,11 +65,13 @@ body.preloader-site {
 
 .content {
   background-image: url("images/background.png");
+  background-color: black;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: 0 -100px;
   min-height: 100%;
   width: 100%;
+  padding: 0 0 100px 0;
 }
 
 body {
@@ -99,7 +103,7 @@ body {
   height: auto;
 }
 
-.apply-container:hover > #apply-link-img {
+.apply-container:hover>#apply-link-img {
   -webkit-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
   -moz-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
   -ms-filter: drop-shadow(-3px 5px rgb(0, 0, 0));
@@ -280,6 +284,27 @@ canvas {
   top: -14%;
 }
 
+#sponsors-header {
+  position: relative;
+  margin: 10% 0 5% 0;
+  z-index: 1000;
+  max-width: 50%;
+  max-height: 20%;
+  width: auto;
+  height: auto;
+}
+
+.sponsor-row {
+  margin: 3em 0;
+}
+
+.sponsor-logo {
+  margin: 2em 0;
+  min-width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
 .question-img, .answer-img {
   display: flex;
   position: relative;
@@ -439,6 +464,10 @@ canvas {
     max-width: 45%;
     max-height: 35%;
   }
+  #sponsors-header {
+    max-width: 70%;
+    max-height: 40%;
+  }
   .question-text {
     font-size: 1.2vw;
   }
@@ -475,6 +504,10 @@ canvas {
   #faq-header {
     max-width: 70%;
     max-height: 60%;
+  }
+  #sponsors-header {
+    max-width: 90%;
+    max-height: 40%;
   }
   .question-text {
     font-size: 2vw;
